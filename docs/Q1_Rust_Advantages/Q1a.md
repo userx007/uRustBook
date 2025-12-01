@@ -2,6 +2,24 @@
 
 ---
 
+**Fast Answer**
+
+Rust delivers
+
+- memory safety,
+- zero-cost abstractions,
+- fearless concurrency,
+- and predictable performance
+
+combining
+
+- C++-level control with
+- modern tooling,
+- strong security,
+- a reliable, maintainable codebase.
+
+**Detailed Answer**
+
 **Rust gives us the memory-level performance of C++ but eliminates an entire class of bugs at compile time.**
 Where C++ relies heavily on conventions, best practices, and code reviews for safety, Rust enforces safety *in the language design itself*.
 
@@ -139,4 +157,5 @@ That makes game engines and rendering pipelines more stable under heavy load.”
 
 “Rust’s strict compile-time guarantees eliminate whole classes of memory bugs, making it ideal for domains where failures can cause physical harm or major financial loss.
 It enforces safety without needing a garbage collector.”
+
 
