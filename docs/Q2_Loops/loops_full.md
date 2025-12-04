@@ -57,6 +57,24 @@ while let Some(&x) = iter.peek() {
 }
 ```
 
+peek() lets you look at the next value without moving the iterator.
+You can decide whether to consume it with next() based on some condition.
+Without peekable(), you’d have to consume the item immediately and couldn’t “peek ahead” safely.
+
+```rust
+let mut iter = (1..=10).peekable();
+
+while let Some(&x) = iter.peek() {
+    if x % 2 == 0 {
+        println!("Skipping even number: {}", x);
+        iter.next(); // consume it after handling
+    } else {
+        println!("Processing odd number: {}", x);
+        iter.next();
+    }
+}
+```
+
 ### 5. Take / skip
 
 ```rust
@@ -74,6 +92,8 @@ for x in [1,2,3].iter().cycle().take(10) {
 ```
 
 ### 7. Inspect side effects
+Inspect returns the same iterator items unchanged. It is only for side effects (like logging)
+It doesn’t allocate and doesn’t alter the computation
 
 ```rust
 let sum: i32 = (1..5).inspect(|x| println!("x = {x}")).sum();
