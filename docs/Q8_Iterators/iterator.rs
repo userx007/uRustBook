@@ -1,3 +1,8 @@
+/*
+Question: How would you implement a custom iterator in Rust?
+Answer: Implement the Iterator trait for a struct. The next method should return an Option indicating the next element or None if the iteration is complete.
+*/
+
 struct Counter {
     count: u32,
     max: u32,
