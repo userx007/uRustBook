@@ -1,7 +1,5 @@
 # Structs, Enums, and Pattern Matching in Rust
 
-I'll create a comprehensive guide with detailed examples covering these fundamental Rust concepts.I've created a comprehensive guide covering structs, enums, and pattern matching in Rust. Let me break down the key concepts:
-
 ## **Structs**
 
 Rust has three types of structs:

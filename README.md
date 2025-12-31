@@ -2,31 +2,31 @@
 
 # 50 Essential Rust Mastery Topics
 
-[1. **Ownership, Move Semantics, and Borrowing Rules**](docs/MainTopics/1_Ownership_Move_Semantics_and_Borrowing_Rules.md)<br>
+[1. **Ownership, Move Semantics, and Borrowing Rules**](docs/MainTopics/01_Ownership_Move_Semantics_and_Borrowing_Rules.md)<br>
 Understanding ownership transfer, move vs copy semantics, and the fundamental borrowing rules (mutable and immutable references).
 
-[2. **Lifetimes and Lifetime Annotations**](docs/MainTopics/2_Lifetimes_and_Lifetime_Annotations.md)<br>
+[2. **Lifetimes and Lifetime Annotations**](docs/MainTopics/02_Lifetimes_and_Lifetime_Annotations.md)<br>
 Lifetime parameters, elision rules, bounds, higher-ranked trait bounds (HRTBs), and non-lexical lifetimes (NLL).
 
-[3. **Interior Mutability Patterns**](docs/MainTopics/3_Interior_Mutability_Patterns.md)<br>
+[3. **Interior Mutability Patterns**](docs/MainTopics/03_Interior_Mutability_Patterns.md)<br>
 Cell, RefCell, Mutex, RwLock, and understanding when to use each for safe mutation of shared data.
 
-[4. **Reference Counting and Smart Pointers**](docs/MainTopics/4_Reference_Counting_and_Smart_Pointers.md)<br>
+[4. **Reference Counting and Smart Pointers**](docs/MainTopics/04_Reference_Counting_and_Smart_Pointers.md)<br>
 Rc, Arc, Weak, Box, Cow, custom smart pointers, and Deref coercion.
 
-[5. **Structs, Enums, and Pattern Matching**](docs/MainTopics/5_Structs_Enums_and_Pattern_Matching.md)<br>
+[5. **Structs, Enums, and Pattern Matching**](docs/MainTopics/05_Structs_Enums_and_Pattern_Matching.md)<br>
 Struct types, enum variants, exhaustive pattern matching, destructuring, and match guards.
 
-[6. **Generics and Monomorphization**](docs/MainTopics/6_Generics_and_Monomorphization.md)<br>
+[6. **Generics and Monomorphization**](docs/MainTopics/06_Generics_and_Monomorphization.md)<br>
 Generic types, functions, and understanding how Rust compiles generics into concrete types.
 
-[7. **Traits: Definition and Implementation**](docs/MainTopics/7_Traits_Definition_and_Implementation.md)<br>
+[7. **Traits: Definition and Implementation**](docs/MainTopics/07_Traits_Definition_and_Implementation.md)<br>
 Defining traits, implementing traits for types, default implementations, and associated functions.
 
-[8. **Trait Bounds and Where Clauses**](docs/MainTopics/8_Trait_Bounds_and_Where_Clauses.md)<br>
+[8. **Trait Bounds and Where Clauses**](docs/MainTopics/08_Trait_Bounds_and_Where_Clauses.md)<br>
 Constraining generic types with trait bounds, complex where clauses, and multiple bounds.
 
-[9. **Associated Types vs Generic Parameters**](docs/MainTopics/9_Associated_Types_vs_Generic_Parameters.md)<br>
+[9. **Associated Types vs Generic Parameters**](docs/MainTopics/09_Associated_Types_vs_Generic_Parameters.md)<br>
 Understanding when to use associated types versus generic type parameters in trait design.
 
 [10. **Trait Objects and Dynamic Dispatch**](docs/MainTopics/10_Trait_Objects_and_Dynamic_Dispatch.md)<br>

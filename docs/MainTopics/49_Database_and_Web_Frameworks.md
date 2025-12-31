@@ -1,7 +1,5 @@
 # Database and Web Frameworks in Rust
 
-I'll create a comprehensive guide covering Rust's database libraries and web frameworks with practical examples.I've created a comprehensive guide covering Rust's database and web frameworks. Here's what's included:
-
 ## Key Highlights:
 
 **Database Libraries:**

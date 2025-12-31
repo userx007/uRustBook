@@ -64,7 +64,7 @@ SIMD can provide **2-8x speedups** for operations like:
 5. **Use crates**: Consider `packed_simd_2`, `wide`, or `faster` for easier SIMD
 6. **Keep hot data together**: Use SoA layout for better cache utilization
 
-The artifact includes 8 detailed examples showing these concepts in action, from basic SIMD operations to cache-friendly algorithms and real-world image processing. Would you like me to elaborate on any specific aspect?
+The artifact includes 8 detailed examples showing these concepts in action, from basic SIMD operations to cache-friendly algorithms and real-world image processing.
 
 ```rust
 // ============================================================================

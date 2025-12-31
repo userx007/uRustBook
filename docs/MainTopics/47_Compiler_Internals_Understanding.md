@@ -30,7 +30,7 @@
    - Viewing MIR output
    - Using `cargo-expand`, `miri`, and other debugging tools
 
-The guide includes numerous code examples showing both what works and what doesn't, with explanations of the compiler's reasoning. Would you like me to elaborate on any specific aspect, such as diving deeper into the borrow checker algorithm, exploring more complex trait resolution scenarios, or providing additional debugging techniques?
+The guide includes numerous code examples showing both what works and what doesn't, with explanations of the compiler's reasoning.
 
 # Rust Compiler Internals: A Deep Dive
 

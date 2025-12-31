@@ -1,7 +1,5 @@
 # Declarative Macros in Rust (macro_rules!)
 
-I'll create a comprehensive guide covering all aspects of declarative macros with practical examples.I've created a comprehensive guide to Rust's declarative macros. Here's an overview of the key concepts:
-
 ## **What are Declarative Macros?**
 
 Declarative macros (`macro_rules!`) are code generators that work by pattern matching. They let you write code that writes code, reducing repetition and creating domain-specific syntax.
