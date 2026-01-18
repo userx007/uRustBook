@@ -152,3 +152,5 @@ sqlx, diesel, connection pooling, Axum, Actix-web, Rocket, and async web pattern
 [50. **Community Standards and Best Practices**](docs/MainTopics/50_Community_Standards_and_Best_Practices.md)<br>
 RFC process, API guidelines, semantic versioning, crate evaluation, and contributing to the ecosystem.
 
+## Other
+[51. **Pin Short Explanation**](docs/Other/Pin_Explained.md)<br>
