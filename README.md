@@ -1,6 +1,4 @@
-# uRustBook
-
-# 50 Essential Rust Mastery Topics
+# Essential Rust Mastery Topics
 
 [1. **Ownership, Move Semantics, and Borrowing Rules**](docs/MainTopics/01_Ownership_Move_Semantics_and_Borrowing_Rules.md)<br>
 Understanding ownership transfer, move vs copy semantics, and the fundamental borrowing rules (mutable and immutable references).
@@ -153,4 +151,5 @@ sqlx, diesel, connection pooling, Axum, Actix-web, Rocket, and async web pattern
 RFC process, API guidelines, semantic versioning, crate evaluation, and contributing to the ecosystem.
 
 ## Other
-[51. **Pin Short Explanation**](docs/Other/Pin_Explained.md)<br>
+[100. **Modifying Static Mutable Variables**](docs/Other/100_Modifying_Static_Mutable_Variables.md)<br>
+[101. **Pin Short Explanation**](docs/Other/Pin_Explained.md)<br>
