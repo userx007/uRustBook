@@ -354,12 +354,126 @@ Container<'a, &'b i32>
 
 - Rust's way of allowing mutation of data even when there are immutable references to it
 
+### **Cell\<T>** - Simple & Fast
+- Allows mutation of a Copy type inside an immutable struct	
+- **Only for `Copy` types** (integers, bools, chars)
+- Zero runtime overhead
+- Single-threaded only
+- Replaces the entire value with `get()` and `set()`
+- **Use when**: Tracking metadata in immutable structs (counters, flags)
+
+```rust
+struct Counter {
+    count: Cell<i32>,
+}
+
+let counter = Counter {
+    count: Cell::new(0),
+};
+
+// counter is immutable, but we can mutate count
+counter.count.set(counter.count.get() + 1);
+counter.count.set(counter.count.get() + 1);
+```
+
+### **RefCell\<T>** - Flexible Runtime Checking
+- Allows mutation through immutable reference
+- Works with **any type**
+- Enforces borrowing rules at runtime (panics if violated)
+- Can borrow mutably (`borrow_mut()`) or immutably (`borrow()`)
+- Single-threaded only
+- **Use when**: Building graphs/trees with cycles, mock objects, or complex shared data structures in single-threaded code
+
+```rust
+let data = RefCell::new(vec![1, 2, 3]);
+
+// Borrow mutably and modify
+data.borrow_mut().push(4);
+data.borrow_mut().push(5);
+
+// Borrow immutably to read
+println!("Data: {:?}", *data.borrow());
+```
+
+### **Mutex\<T>** - Thread-Safe Exclusivity
+- Thread-safe interior mutability via mutual exclusion
+- Only one thread can access at a time
+- Blocks waiting threads
+- Use with `Arc` for shared ownership
+- **Use when**: Multiple threads need exclusive access to shared data (caches, counters, queues)
+
+```rust
+let counter = Arc::new(Mutex::new(0));
+let mut handles = vec![];
+
+for i in 0..10 {
+    let counter = Arc::clone(&counter);
+    let handle = thread::spawn(move || {
+        let mut num = counter.lock().unwrap();
+        *num += 1;
+        println!("Thread {} incremented counter", i);
+    });
+    handles.push(handle);
+}
+```
 
 
+### **RwLock\<T>** - Optimized for Reads
+- Allows **multiple simultaneous readers** OR one writer
+- Better performance when reads vastly outnumber writes
+- Writers block all access, readers only block writers
+- **Use when**: Configuration systems, read-heavy data structures, rarely-updated shared state
+
+```rust
+let data = Arc::new(RwLock::new(vec![1, 2, 3, 4, 5]));
+let mut handles = vec![];
+
+// Spawn multiple reader threads
+for i in 0..5 {
+    let data = Arc::clone(&data);
+    let handle = thread::spawn(move || {
+        let read_guard = data.read().unwrap();
+        println!("Reader {} sees: {:?}", i, *read_guard);
+    });
+    handles.push(handle);
+}
+
+// Spawn a writer thread
+let data_writer = Arc::clone(&data);
+let writer_handle = thread::spawn(move || {
+    let mut write_guard = data_writer.write().unwrap();
+    write_guard.push(6);
+    println!("Writer added value");
+});
+handles.push(writer_handle);
+
+for handle in handles {
+    handle.join().unwrap();
+}
+```
+
+### Common Pitfalls
+
+| Type           | Common Pitfalls                                   | Explanation / Example                                                                                                     |
+| -------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Cell<T>**    | Misuse with non-`Copy` types                      | `Cell` only works with `Copy` types; trying to store a non-Copy type will not compile.                                    |
+| **RefCell<T>** | Borrowing violations                              | Panics occur if you try to mutably borrow while already borrowed, e.g., `borrow_mut()` while `borrow()` is active.        |
+| **Mutex<T>**   | Deadlock                                          | Can happen if multiple threads try to acquire locks in inconsistent order or hold locks while waiting on other resources. |
+| **Mutex<T>**   | Holding lock too long                             | Holding a mutex across slow operations blocks other threads, reducing concurrency.                                        |
+| **RwLock<T>**  | Writer starvation                                 | Continuous readers can block writers indefinitely if not carefully managed.                                               |
+| **RwLock<T>**  | Deadlock                                          | Like mutexes, acquiring multiple locks in inconsistent order can deadlock.                                                |
+| **All**        | Panic in single-threaded vs multi-threaded misuse | Using single-threaded types (`Cell` / `RefCell`) in multi-threaded code leads to unsafe behavior or compile errors.       |
 
 
+### **Decision Factors:**
+
+1. **Thread safety needed?** → `Mutex` / `RwLock` (multi-threaded) vs `Cell` / `RefCell` (single-threaded)
+2. **Copy type?** → `Cell` is simplest
+3. **Read-heavy workload?** → `RwLock` over `Mutex`
+4. **Need runtime flexibility?** → `RefCell` for graphs/cycles
 
 
+---
 
 
 # Trait Bounds?

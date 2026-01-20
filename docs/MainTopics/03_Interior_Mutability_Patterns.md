@@ -417,9 +417,27 @@ fn main() {
 }
 ```
 
+### Summary
+
 | Type           | Key Characteristics                                                                                                                | Thread Safety        | Access Rules                                      | Typical Use Cases                                                      |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------------------------------------------------- | ---------------------------------------------------------------------- |
 | **Cell<T>**    | - Only for `Copy` types (integers, bools, chars)<br>- Zero runtime overhead<br>- Replaces entire value with `get()` and `set()`    | Single-threaded only | Direct get/set, no borrowing                      | Tracking metadata in immutable structs (counters, flags)               |
 | **RefCell<T>** | - Works with any type<br>- Runtime borrow checking (panics if violated)<br>- `borrow()` for immutable, `borrow_mut()` for mutable  | Single-threaded only | Mutable or immutable borrowing checked at runtime | Graphs/trees with cycles, mock objects, complex shared data structures |
 | **Mutex<T>**   | - Thread-safe via mutual exclusion<br>- Only one thread accesses at a time<br>- Blocks waiting threads<br>- Often used with `Arc`  | Multi-threaded       | Exclusive mutable access                          | Multi-threaded caches, counters, queues                                |
 | **RwLock<T>**  | - Allows multiple readers OR one writer<br>- Readers block only writers; writers block all<br>- Optimized for read-heavy workloads | Multi-threaded       | Multiple immutable or single mutable access       | Configuration systems, read-heavy shared state, rarely updated data    |
+
+
+### Common Pitfalls
+
+| Type           | Common Pitfalls                                   | Explanation / Example                                                                                                     |
+| -------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Cell<T>**    | Misuse with non-`Copy` types                      | `Cell` only works with `Copy` types; trying to store a non-Copy type will not compile.                                    |
+| **RefCell<T>** | Borrowing violations                              | Panics occur if you try to mutably borrow while already borrowed, e.g., `borrow_mut()` while `borrow()` is active.        |
+| **Mutex<T>**   | Deadlock                                          | Can happen if multiple threads try to acquire locks in inconsistent order or hold locks while waiting on other resources. |
+| **Mutex<T>**   | Holding lock too long                             | Holding a mutex across slow operations blocks other threads, reducing concurrency.                                        |
+| **RwLock<T>**  | Writer starvation                                 | Continuous readers can block writers indefinitely if not carefully managed.                                               |
+| **RwLock<T>**  | Deadlock                                          | Like mutexes, acquiring multiple locks in inconsistent order can deadlock.                                                |
+| **All**        | Panic in single-threaded vs multi-threaded misuse | Using single-threaded types (`Cell` / `RefCell`) in multi-threaded code leads to unsafe behavior or compile errors.       |
+
+
+
