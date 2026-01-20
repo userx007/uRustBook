@@ -426,6 +426,8 @@ fn main() {
 }
 ```
 
+[More `Cow<T>` examples here...](../Other/107_When_Cow_is_Needed_in_Rust.md)
+
 ---
 
 ## 6. Custom Smart Pointers

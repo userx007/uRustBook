@@ -156,7 +156,10 @@ RFC process, API guidelines, semantic versioning, crate evaluation, and contribu
 [101. **Pin Short Explanation**](docs/Other/101_Pin_Explained.md)<br>
 [102. **Spin Crate Examples**](docs/Other/102_Spin_Crate_Examples.md)<br>
 [103. **When `Box<T>` is Needed in Rust**](docs/Other/103_When_Box_is_Needed_in_Rust.md)<br>
-
+[104. **When `Rc<T>` is Needed in Rust**](docs/Other/104_When_Rc_is_Needed_in_Rust.md)<br>
+[105. **When `Arc<T>` is Needed in Rust**](docs/Other/105_When_Arc_is_Needed_in_Rust.md)<br>
+[106. **When `Weak<T>` is Needed in Rust**](docs/Other/106_When_Weak_is_Needed_in_Rust.md)<br>
+[107. **When `Cow<T>` is Needed in Rust**](docs/Other/107_When_Cow_is_Needed_in_Rust.md)<br>	
 
 ## Summary
 
