@@ -151,6 +151,11 @@ sqlx, diesel, connection pooling, Axum, Actix-web, Rocket, and async web pattern
 RFC process, API guidelines, semantic versioning, crate evaluation, and contributing to the ecosystem.
 
 ## Other
+
 [100. **Modifying Static Mutable Variables**](docs/Other/100_Modifying_Static_Mutable_Variables.md)<br>
 [101. **Pin Short Explanation**](docs/Other/101_Pin_Explained.md)<br>
 [102. **Spin Crate Examples**](docs/Other/102_Spin_Crate_Examples.md)<br>
+
+## Summary
+
+[1000. **Summary**](docs/Summary/1000_Summary.md)<br>
