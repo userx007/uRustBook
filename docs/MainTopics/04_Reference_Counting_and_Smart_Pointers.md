@@ -39,6 +39,8 @@ Smart pointers in Rust are data structures that act like pointers but have addit
 
 ### Example: Basic Usage
 
+[More examples here...](../Other/103_When_Box_is_Needed_in_Rust.md)
+
 ```rust
 fn main() {
     // Simple heap allocation
