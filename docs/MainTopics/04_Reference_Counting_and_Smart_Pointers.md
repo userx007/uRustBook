@@ -233,6 +233,8 @@ fn main() {
 }
 ```
 
+[More `Arc<T>` examples here...](../Other/105_When_Arc_is_Needed_in_Rust.md)
+
 ---
 
 ## 4. Weak\<T\> - Weak References
