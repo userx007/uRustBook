@@ -17,12 +17,18 @@ Interior mutability is Rust's way of allowing mutation of data even when there a
 - Replaces the entire value with `get()` and `set()`
 - **Use when**: Tracking metadata in immutable structs (counters, flags)
 
+[More `Cell<T>` examples here...](../Other/108_When_Cell_is_Needed_in_Rust.md)
+
+
 ### **RefCell\<T>** - Flexible Runtime Checking
 - Works with **any type**
 - Enforces borrowing rules at runtime (panics if violated)
 - Can borrow mutably (`borrow_mut()`) or immutably (`borrow()`)
 - Single-threaded only
 - **Use when**: Building graphs/trees with cycles, mock objects, or complex shared data structures in single-threaded code
+
+[More `RefCell<T>` examples here...](../Other/109_When_RefCell_is_Needed_in_Rust.md)
+
 
 ### **Mutex\<T>** - Thread-Safe Exclusivity
 - Thread-safe via mutual exclusion
@@ -31,11 +37,17 @@ Interior mutability is Rust's way of allowing mutation of data even when there a
 - Use with `Arc` for shared ownership
 - **Use when**: Multiple threads need exclusive access to shared data (caches, counters, queues)
 
+[More `Mutex<T>` examples here...](../Other/110_When_Mutex_is_Needed_in_Rust.md)
+
+
 ### **RwLock\<T>** - Optimized for Reads
 - Allows **multiple simultaneous readers** OR one writer
 - Better performance when reads vastly outnumber writes
 - Writers block all access, readers only block writers
 - **Use when**: Configuration systems, read-heavy data structures, rarely-updated shared state
+
+[More `RwLock<T>` examples here...](../Other/111_When_RwLock_is_Needed_in_Rust.md)
+
 
 ## Key Decision Factors:
 

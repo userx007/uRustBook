@@ -159,7 +159,11 @@ RFC process, API guidelines, semantic versioning, crate evaluation, and contribu
 [104. **When `Rc<T>` is Needed in Rust**](docs/Other/104_When_Rc_is_Needed_in_Rust.md)<br>
 [105. **When `Arc<T>` is Needed in Rust**](docs/Other/105_When_Arc_is_Needed_in_Rust.md)<br>
 [106. **When `Weak<T>` is Needed in Rust**](docs/Other/106_When_Weak_is_Needed_in_Rust.md)<br>
-[107. **When `Cow<T>` is Needed in Rust**](docs/Other/107_When_Cow_is_Needed_in_Rust.md)<br>	
+[107. **When `Cow<T>` is Needed in Rust**](docs/Other/107_When_Cow_is_Needed_in_Rust.md)<br>
+[108. **When `Cell<T>` is Needed in Rust**](docs/Other/108_When_Cell_is_Needed_in_Rust.md)<br>
+[109. **When `RefCell<T>` is Needed in Rust**](docs/Other/109_When_RefCell_is_Needed_in_Rust.md)<br>
+[110. **When `Mutex<T>` is Needed in Rust**](docs/Other/110_When_Mutex_is_Needed_in_Rust.md)<br>
+[111. **When `RwLock<T>` is Needed in Rust**](docs/Other/111_When_RwLock_is_Needed_in_Rust.md)<br>    
 
 ## Summary
 
