@@ -475,6 +475,10 @@ for handle in handles {
 
 ---
 
+# 4. Rust's reference counting and smart pointers
+
+---
+
 
 # Trait Bounds?
 

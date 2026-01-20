@@ -150,11 +150,13 @@ sqlx, diesel, connection pooling, Axum, Actix-web, Rocket, and async web pattern
 [50. **Community Standards and Best Practices**](docs/MainTopics/50_Community_Standards_and_Best_Practices.md)<br>
 RFC process, API guidelines, semantic versioning, crate evaluation, and contributing to the ecosystem.
 
-## Other
+## Miscelaneous
 
 [100. **Modifying Static Mutable Variables**](docs/Other/100_Modifying_Static_Mutable_Variables.md)<br>
 [101. **Pin Short Explanation**](docs/Other/101_Pin_Explained.md)<br>
 [102. **Spin Crate Examples**](docs/Other/102_Spin_Crate_Examples.md)<br>
+[103. **When `Box<T>` is Needed in Rust**](docs/Other/103_When_Box_is_Needed_in_Rust.md)<br>
+
 
 ## Summary
 
