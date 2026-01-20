@@ -337,6 +337,7 @@ impl Subject {
     }
 }
 ```
+[More `Weak<T>` examples here...](../Other/106_When_Weak_is_Needed_in_Rust.md)
 
 ---
 
