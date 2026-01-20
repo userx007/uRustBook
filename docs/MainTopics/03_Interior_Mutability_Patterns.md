@@ -416,3 +416,10 @@ fn main() {
     println!("Choose based on: thread safety needs, data type, and access patterns.");
 }
 ```
+
+| Type           | Key Characteristics                                                                                                                | Thread Safety        | Access Rules                                      | Typical Use Cases                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Cell<T>**    | - Only for `Copy` types (integers, bools, chars)<br>- Zero runtime overhead<br>- Replaces entire value with `get()` and `set()`    | Single-threaded only | Direct get/set, no borrowing                      | Tracking metadata in immutable structs (counters, flags)               |
+| **RefCell<T>** | - Works with any type<br>- Runtime borrow checking (panics if violated)<br>- `borrow()` for immutable, `borrow_mut()` for mutable  | Single-threaded only | Mutable or immutable borrowing checked at runtime | Graphs/trees with cycles, mock objects, complex shared data structures |
+| **Mutex<T>**   | - Thread-safe via mutual exclusion<br>- Only one thread accesses at a time<br>- Blocks waiting threads<br>- Often used with `Arc`  | Multi-threaded       | Exclusive mutable access                          | Multi-threaded caches, counters, queues                                |
+| **RwLock<T>**  | - Allows multiple readers OR one writer<br>- Readers block only writers; writers block all<br>- Optimized for read-heavy workloads | Multi-threaded       | Multiple immutable or single mutable access       | Configuration systems, read-heavy shared state, rarely updated data    |

@@ -7,8 +7,22 @@ Rust's ownership system is its most distinctive feature, enabling memory safety 
 Rust enforces three fundamental ownership rules at compile time:
 
 1. **Each value has a single owner** (a variable that holds it)
+    - Emphasizes *existence and identity*:
+        - A value is *never unowned*
+        - Ownership is *explicit*
+        - There is always a *specific* variable responsible for cleanup
+
 2. **There can only be one owner at a time**
+    - Emphasizes *exclusivity over time*:
+        - Ownership *cannot be shared*
+        - Ownership *can move*, but never duplicate
+        - Prevents double-free and data races
+
 3. **When the owner goes out of scope, the value is dropped** (memory is freed)
+
+First 2 rules can be replced with: 
+- Each value has exactly one owner at any point in time.
+
 
 ### Basic Example:
 

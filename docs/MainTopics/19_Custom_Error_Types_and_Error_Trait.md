@@ -15,6 +15,77 @@ pub trait Error: Debug + Display {
 
 ## 1. Manual Implementation of Error Trait
 
+```
+            Custom Error Types (Rust)
+        ┌───────────────────────────────┐
+        │      std::error::Error        │
+        │   (trait, public interface)   │
+        └───────────────────────────────┘
+                         ▲
+                         │ requires
+            ┌────────────┴────────────┐
+            │                         │
+    ┌───────────────┐        ┌────────────────┐
+    │  fmt::Debug   │        │  fmt::Display  │
+    │  (developer)  │        │  (user output) │
+    └───────────────┘        └────────────────┘
+
+
+        ┌───────────────────────────────┐
+        │      Custom Error Type        │
+        │        (struct / enum)        │
+        └───────────────────────────────┘
+                     │
+        ┌────────────┼────────────────┐
+        │            │                │
+        ▼            ▼                ▼
+  derive Debug   impl Display     impl Error
+                                 (no methods)
+
+
+        ┌───────────────────────────────┐
+        │     Error Usage Patterns      │
+        └───────────────────────────────┘
+         │              │            │
+     Result<T, E>    dyn Error       ?
+         │              │            │
+         ▼              ▼            ▼
+  concrete error   trait object   error propagation
+
+
+        ┌───────────────────────────────┐
+        │     Optional Enhancements     │
+        └───────────────────────────────┘
+           source()  → error chaining
+           From<T>   → automatic conversion
+           thiserror / anyhow → ergonomics
+
+Legend:
+───────
+struct / enum → define error shape
+Display       → user-friendly message
+Debug         → internal diagnostics
+Error         → interoperability contract
+```
+
+### Minimal code (irreducible)
+
+```rust
+use std::fmt;
+use std::error::Error;
+
+#[derive(Debug)]
+struct MyError;
+
+impl fmt::Display for MyError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "error")
+    }
+}
+
+impl Error for MyError {}
+```
+
 ### Simple Custom Error
 
 ```rust
