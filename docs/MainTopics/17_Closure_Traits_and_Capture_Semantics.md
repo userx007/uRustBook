@@ -10,6 +10,35 @@ Rust's closure system is built around three traits that define how closures can 
 
 **Fn** is the most restrictive. Closures implementing Fn can be called multiple times without mutating captured variables. They only need an immutable reference to themselves (`&self`) to be called. Any closure implementing Fn also implements FnMut and FnOnce, forming a hierarchy.
 
+```rust
+                ┌──────────────────────────┐
+                │          Fn              │ "most restrictive"
+                │──────────────────────────│
+                │ call(&self)              │
+                │ • no mutation            │
+                │ • callable many times    │
+                └─────────────▲────────────┘
+                              │
+                ┌─────────────┴────────────┐
+                │         FnMut            │ "more restrictive"
+                │──────────────────────────│
+                │ call(&mut self)          │
+                │ • may mutate captures    │
+                │ • callable many times    │
+                └─────────────▲────────────┘
+                              │
+                ┌─────────────┴────────────┐
+                │        FnOnce            │ "most permissive"
+                │──────────────────────────│
+                │ call_once(self)          │
+                │ • may consume captures   │
+                │ • callable at least once │
+                └──────────────────────────┘
+
+"Everything that is Fn is also FnMut and FnOnce.                
+
+```
+
 ## Capture Modes
 
 Rust closures automatically capture variables from their environment in the least restrictive way possible:
@@ -19,6 +48,52 @@ Rust closures automatically capture variables from their environment in the leas
 **By mutable reference (&mut T)** - The closure borrows the variable mutably. This happens when the closure modifies the value. The closure will implement FnMut but not Fn.
 
 **By value (T)** - The closure takes ownership of the variable. This happens when the closure consumes the value or when you use the `move` keyword. If the closure consumes a captured value, it only implements FnOnce.
+
+``` 
+                    Rust Closure Capture Analysis
+
+               ┌────────────────────────────────────┐
+               │   Variable used inside closure?    │
+               └────────────────────────────────────┘
+                              │
+                              ▼
+               ┌────────────────────────────────────┐
+               │   How does the closure use it?     │
+               └────────────────────────────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          │                   │                   │
+          ▼                   ▼                   ▼
+┌───────────────────┐ ┌───────────────────┐ ┌─────────────────────┐
+│ Read-only access  │ │ Mutable access    │ │ Ownership required  │
+│ (no mutation)     │ │ (value modified)  │ │ (consumed or `move`)│
+└───────────────────┘ └───────────────────┘ └─────────────────────┘
+          │                   │                   │
+          ▼                   ▼                   ▼
+┌───────────────────┐ ┌───────────────────┐ ┌─────────────────────┐
+│ Capture as &T     │ │ Capture as &mut T │ │ Capture as T        │
+│ Immutable borrow  │ │ Mutable borrow    │ │ Move / ownership    │
+└───────────────────┘ └───────────────────┘ └─────────────────────┘
+          │                   │                   │
+          ▼                   ▼                   ▼
+┌───────────────────┐ ┌───────────────────┐ ┌─────────────────────┐
+│ Implements: Fn    │ │ Implements: FnMut │ │ Implements: FnOnce  │
+│                   │ │ (not Fn)          │ │ (only once)         │
+└───────────────────┘ └───────────────────┘ └─────────────────────┘
+
+
+Legend:
+───────
+&T      = immutable borrow (shared access)
+&mut T  = mutable borrow (exclusive access)
+T       = ownership moved into closure
+
+Mental model shortcut
+─────────────────────
+Read    → borrow (&T)     → Fn
+Modify  → borrow (&mut T) → FnMut
+Consume → move (T)        → FnOnce
+```
 
 Here's an example showing the different capture modes:
 

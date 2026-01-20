@@ -4,7 +4,9 @@ Trait bounds are constraints that specify what capabilities a generic type must 
 
 ## Why Trait Bounds?
 
-Without trait bounds, generic types can't do anything useful because Rust doesn't know what operations they support. Trait bounds tell the compiler what methods and behaviors a type must implement.## Key Concepts Explained
+Without trait bounds, generic types can't do anything useful because Rust doesn't know what operations they support. Trait bounds tell the compiler what methods and behaviors a type must implement.
+
+## Key Concepts Explained
 
 ### **1. Basic Trait Bound Syntax**
 
@@ -114,9 +116,6 @@ fn print_and_clone<T: Display + Clone>(item: T) -> T {
 
 // Without where clause - gets messy with multiple generics
 fn complex_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> String 
-where
-    T: Display + Clone,
-    U: Clone + std::fmt::Debug,
 {
     format!("{} and {:?}", t, u)
 }
