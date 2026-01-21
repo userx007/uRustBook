@@ -164,6 +164,7 @@ RFC process, API guidelines, semantic versioning, crate evaluation, and contribu
 [109. **When `RefCell<T>` is Needed in Rust**](docs/Other/109_When_RefCell_is_Needed_in_Rust.md)<br>
 [110. **When `Mutex<T>` is Needed in Rust**](docs/Other/110_When_Mutex_is_Needed_in_Rust.md)<br>
 [111. **When `RwLock<T>` is Needed in Rust**](docs/Other/111_When_RwLock_is_Needed_in_Rust.md)<br>    
+[112. **Destructuring details**](docs/Other/112_Destructuring.md)<br>    
 
 ## Summary
 
