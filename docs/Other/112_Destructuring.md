@@ -1,4 +1,4 @@
-#### Destructuring details
+#### Destructuring Explained
 
 ```rust
 use std::collections::HashMap;  // Import HashMap from standard library
