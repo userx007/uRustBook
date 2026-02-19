@@ -150,6 +150,65 @@ sqlx, diesel, connection pooling, Axum, Actix-web, Rocket, and async web pattern
 [50. **Community Standards and Best Practices**](docs/MainTopics/50_Community_Standards_and_Best_Practices.md)<br>
 RFC process, API guidelines, semantic versioning, crate evaluation, and contributing to the ecosystem.
 
+[51. **String Types and Text Handling**](docs/MainTopics/51_String_Types_and_Text_Handling.md)<br>
+String vs &str, OsStr/OsString, Path/PathBuf, string slicing, encoding, and text manipulation.
+
+[52. **Collections and Standard Data Structures**](docs/MainTopics/52_Collections_and_Standard_Data_Structures.md)<br>
+Vec, HashMap, BTreeMap, HashSet, VecDeque, BinaryHeap, LinkedList, and choosing the right collection.
+
+[53. **The Module System and Visibility**](docs/MainTopics/53_Module_System_and_Visibility.md)<br>
+Module hierarchy, pub/pub(crate)/pub(super), use declarations, re-exports, and crate structure best practices.
+
+[54. **Conditional Compilation and cfg**](docs/MainTopics/54_Conditional_Compilation_and_cfg.md)<br>
+cfg attributes, cfg_attr, feature flags, target-specific code, and build-time configuration.
+
+[55. **Serialization with Serde**](docs/MainTopics/55_Serialization_with_Serde.md)<br>
+Serde derive macros, custom serializers/deserializers, data formats (JSON, TOML, bincode), and schema evolution.
+
+[56. **Logging, Tracing, and Observability**](docs/MainTopics/56_Logging_Tracing_and_Observability.md)<br>
+The log and tracing crates, structured logging, spans, subscribers, and integrating with observability platforms.
+
+[57. **CLI Argument Parsing**](docs/MainTopics/57_CLI_Argument_Parsing.md)<br>
+Using clap and argh, subcommands, environment variable integration, and building ergonomic CLI tools.
+
+[58. **File I/O and Async I/O**](docs/MainTopics/58_File_IO_and_Async_IO.md)<br>
+Sync vs async file operations, BufReader/BufWriter, memory-mapped files, and Tokio I/O traits.
+
+[59. **Networking Fundamentals in Rust**](docs/MainTopics/59_Networking_Fundamentals_in_Rust.md)<br>
+TCP/UDP sockets, TLS integration, async networking with Tokio, and common networking patterns.
+
+[60. **State Machines in Rust**](docs/MainTopics/60_State_Machines_in_Rust.md)<br>
+Modeling state machines with enums, the typestate pattern, transitions, and correctness guarantees.
+
+[61. **The Allocator API and Custom Allocators**](docs/MainTopics/61_Allocator_API_and_Custom_Allocators.md)<br>
+GlobalAlloc, the Allocator trait, arena allocators, bump allocators, and allocator-aware collections.
+
+[62. **Lock-Free Data Structures**](docs/MainTopics/62_Lock_Free_Data_Structures.md)<br>
+Compare-and-swap, epoch-based reclamation, crossbeam epoch, hazard pointers, and practical lock-free patterns.
+
+[63. **Process Management and System Calls**](docs/MainTopics/63_Process_Management_and_System_Calls.md)<br>
+std::process, spawning and piping child processes, signals, environment variables, and libc syscall wrappers.
+
+[64. **Regular Expressions and Text Processing**](docs/MainTopics/64_Regular_Expressions_and_Text_Processing.md)<br>
+The regex crate, compiled patterns, capture groups, Unicode handling, and parsing alternatives like nom and pest.
+
+[65. **Plugin Systems and Dynamic Loading**](docs/MainTopics/65_Plugin_Systems_and_Dynamic_Loading.md)<br>
+libloading, cdylib crates, ABI stability challenges, and patterns for extensible Rust applications.
+
+[66. **Compile-Time Computation and const fn**](docs/MainTopics/66_Compile_Time_Computation_and_const_fn.md)<br>
+const fn, const evaluation context, limitations, lookup tables, and compile-time guarantees.
+
+[67. **Type Conversions: From, Into, TryFrom, TryInto, AsRef, Borrow**](docs/MainTopics/67_Type_Conversions.md)<br>
+The standard conversion traits, implementing them correctly, coherence pitfalls, and idioms for ergonomic APIs.
+
+[68. **MaybeUninit and Uninitialized Memory**](docs/MainTopics/68_MaybeUninit_and_Uninitialized_Memory.md)<br>
+Safe use of MaybeUninit<T>, partially initialized structs, avoiding UB, and initializing complex structures.
+
+[69. **Cryptography and Hashing in Rust**](docs/MainTopics/69_Cryptography_and_Hashing.md)<br>
+RustCrypto crates, ring, std Hasher trait, cryptographic vs non-cryptographic hashes, and secure coding practices.
+
+[70. **Reflection and Runtime Type Information**](docs/MainTopics/70_Reflection_and_Runtime_Type_Information.md)<br>
+TypeId, Any trait, downcasting, limitations of Rust's reflection model, and compile-time alternatives.
 ## Miscelaneous
 
 [100. **Modifying Static Mutable Variables**](docs/Other/100_Modifying_Static_Mutable_Variables.md)<br>
